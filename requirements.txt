@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+jinja2
+python-docx
+pdfplumber
+python-multipart
+openai==0.28

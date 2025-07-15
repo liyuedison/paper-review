@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>论文初审系统</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>论文初审系统（节能主题）</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".pdf,.docx" required>
+    <button type="submit">上传并初审</button>
+  </form>
+  {% if result %}
+    <h2>AI 审核结果：</h2>
+    <pre>{{ result }}</pre>
+  {% endif %}
+</body>
+</html>

@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
+import io
 import pdfplumber, docx
 import httpx
 
@@ -15,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 
 def extract_text_from_pdf(file_bytes):
     text = ""
-    with pdfplumber.open(file_bytes) as pdf:
+    with pdfplumber.open(io.BytesIO(file_bytes)) as pdf:
         for page in pdf.pages:
             text += page.extract_text() + "\n"
     return text
